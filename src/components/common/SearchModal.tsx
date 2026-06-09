@@ -49,7 +49,7 @@ export default function SearchModal() {
   if (!isSearchOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-20 px-4"
+    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-20 px-3 sm:px-4"
       onClick={() => setIsSearchOpen(false)}>
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
       <div className="relative w-full max-w-xl bg-white dark:bg-gray-900 border-4 border-[#212121] rounded-2xl shadow-[8px_8px_0_#212121] overflow-hidden"

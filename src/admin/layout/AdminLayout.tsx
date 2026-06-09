@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation, Navigate, Outlet } from 'react-router-dom'
 import { useAdmin } from '../context/AdminContext'
 import {
@@ -70,7 +70,20 @@ const menuGroups = [
 
 export default function AdminLayout() {
   const { isAuthenticated, loading, user, logout } = useAdmin()
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth < 1024)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 1024
+      setIsMobile(mobile)
+      if (!mobile) setSidebarOpen(true)
+      else setSidebarOpen(false)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
   const location = useLocation()
 
   if (loading) return (
@@ -88,8 +101,20 @@ export default function AdminLayout() {
 
   return (
     <div className="flex h-screen bg-gray-100 overflow-hidden">
+      {/* Mobile overlay */}
+      {isMobile && sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-20 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className={`${sidebarOpen ? 'w-64' : 'w-0 overflow-hidden'} transition-all duration-300 bg-[#212121] flex flex-col shrink-0 border-r-4 border-[#2E7D32]`}>
+      <aside className={`${
+        isMobile
+          ? `fixed inset-y-0 left-0 z-30 w-64 transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`
+          : `${sidebarOpen ? 'w-64' : 'w-0 overflow-hidden'} transition-all duration-300 shrink-0`
+      } bg-[#212121] flex flex-col border-r-4 border-[#2E7D32]`}>
         {/* Logo */}
         <div className="p-4 border-b-2 border-gray-700">
           <div className="flex items-center gap-3">

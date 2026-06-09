@@ -43,9 +43,9 @@ export default function ChatbotWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-4 sm:right-6 z-50">
       {open && (
-        <div className="mb-3 w-80 bg-white border-4 border-[#212121] rounded-2xl shadow-[8px_8px_0_#212121] overflow-hidden">
+        <div className="mb-3 w-[calc(100vw-2rem)] sm:w-80 max-w-sm bg-white border-4 border-[#212121] rounded-2xl shadow-[8px_8px_0_#212121] overflow-hidden">
           <div className="gradient-green p-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">

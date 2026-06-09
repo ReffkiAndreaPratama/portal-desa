@@ -94,7 +94,7 @@ export default function HomePage() {
               Portal Resmi Desa Digital
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight mb-4">
               DESA
               <span className="block text-[#66BB6A]">TALANG MARAP</span>
             </h1>

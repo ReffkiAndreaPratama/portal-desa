@@ -94,7 +94,7 @@ function PerangkatSection({ list, loading }: { list: any[]; loading: boolean }) 
       <span className="inline-block bg-[#E8F5E9] border-2 border-[#2E7D32] text-[#2E7D32] text-xs font-black px-4 py-1 rounded-full mb-3">PERANGKAT DESA</span>
       <h2 className="text-3xl font-black mb-8">Struktur <span className="text-gradient">Pemerintahan</span></h2>
       {loading ? (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="brutal-card p-5 text-center animate-pulse">
               <div className="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3" />
@@ -104,7 +104,7 @@ function PerangkatSection({ list, loading }: { list: any[]; loading: boolean }) 
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
           {list.map((p: any, i: number) => (
             <div key={p.id ?? i} className="brutal-card p-5 text-center">
               <img
@@ -142,9 +142,9 @@ function DemografiSection() {
           { label: 'Perempuan', value: statistikDemografi.penduduk.perempuan.toLocaleString(), color: '#AD1457' },
           { label: 'Rasio L/P', value: '99.5%', color: '#E65100' },
         ].map((s, i) => (
-          <div key={i} className="brutal-card p-5 text-center">
-            <p className="text-2xl font-black" style={{ color: s.color }}>{s.value}</p>
-            <p className="text-gray-500 text-sm font-medium mt-1">{s.label}</p>
+          <div key={i} className="brutal-card p-4 sm:p-5 text-center">
+            <p className="text-xl sm:text-2xl font-black" style={{ color: s.color }}>{s.value}</p>
+            <p className="text-gray-500 text-xs sm:text-sm font-medium mt-1">{s.label}</p>
           </div>
         ))}
       </div>
@@ -179,7 +179,7 @@ function DemografiSection() {
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={pekerjaan} layout="vertical">
               <XAxis type="number" />
-              <YAxis dataKey="label" type="category" width={150} tick={{ fontSize: 11 }} />
+              <YAxis dataKey="label" type="category" width={120} tick={{ fontSize: 10 }} />
               <Tooltip />
               <Bar dataKey="value" fill="#43A047" radius={4} />
             </BarChart>
@@ -214,7 +214,7 @@ export default function ProfilPage() {
 
       <div className="container-custom py-8">
         {/* Info Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
             { icon: <MapPin size={20} />, label: 'Lokasi', value: desaInfo.kecamatan },
             { icon: <Phone size={20} />, label: 'WhatsApp', value: '+62 812-3456-7890' },
