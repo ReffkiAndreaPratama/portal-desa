@@ -1,7 +1,7 @@
 export const desaInfo = {
   nama: "Desa Talang Marap",
-  kecamatan: "Kecamatan Ulu Manna",
-  kabupaten: "Kabupaten Bengkulu Selatan",
+  kecamatan: "Kecamatan Kelam Tengah",
+  kabupaten: "Kabupaten Kaur",
   provinsi: "Provinsi Bengkulu",
   tagline: "Mengenal Desa, Mengelola Data, Membangun Masa Depan",
   kepala: "Bapak Sumarno",
@@ -10,7 +10,7 @@ export const desaInfo = {
   luasWilayah: "24.5 km²",
   jumlahDusun: 4,
   koordinat: { lat: -4.35, lng: 103.12 },
-  alamat: "Jl. Raya Talang Marap No. 1, Kec. Ulu Manna, Kab. Bengkulu Selatan",
+  alamat: "Jl. Raya Talang Marap No. 1, Kec. Kelam Tengah, Kab. Kaur",
   whatsapp: "6281234567890",
   email: "desatalangmarap@gmail.com",
   instagram: "desatalangmarap",
